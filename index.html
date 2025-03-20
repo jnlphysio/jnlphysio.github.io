@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Grow Physiotherapy | Physiotherapy with Purpose</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Updated color scheme */
+            --primary: #5A8D7F;
+            --primary-light: #7DAB9F;
+            --primary-dark: #446B60;
+            --secondary: #a0b7a6;
+            --accent: #B38D45; /* Warm gold accent for CTAs */
+            --accent-hover: #9A7838; /* Darker accent for hover states */
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --background: #f9f6f2; /* Warmer background color */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 5rem;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        
+        section h2 {
+            padding-top: var(--spacing-sm); /* Reduced from spacing-md to spacing-sm */
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-top: var(--spacing-md); /* Reduced from spacing-lg to spacing-md */
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-top: var(--spacing-md);
+        }
+
+        p {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        section {
+            padding: var(--spacing-sm) 0;
+            position: relative;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-dark);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-xs) var(--spacing-sm);
+        }
+        
+        .logo-and-name {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            height: 40px;
+            width: auto;
+            margin-right: var(--spacing-xs);
+        }
+        
+        .company-name {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .nav-links li {
+            margin: 0 var(--spacing-xs);
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+            padding: var(--spacing-xs);
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        /* Hide menu toggle button as we no longer need it */
+        .menu-toggle {
+            display: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary);
+            color: var(--text-light);
+            padding: var(--spacing-md) 0;
+            position: relative;
+            margin-top: 56px; /* Height of the fixed navbar */
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .logo {
+            max-width: 180px;
+            height: auto;
+        }
+
+        .tagline {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Hero */
+        .hero {
+            background-color: var(--primary-light);
+            color: var(--text-light);
+            padding: var(--spacing-md) 0; /* Reduced from spacing-lg to spacing-md */
+            text-align: center;
+            position: relative;
+            margin-bottom: var(--spacing-sm); /* Reduced from spacing-md to spacing-sm */
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+            font-size: 2.2rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Smooth transitions between sections */
+        section {
+            margin-bottom: var(--spacing-sm); /* Reduced from spacing-md to spacing-sm */
+            padding: var(--spacing-sm) 0; /* Reduced padding from spacing-md to spacing-sm */
+        }
+        
+        section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* Updated button style with accent color */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--text-light);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Cards */
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: var(--spacing-sm);
+            text-align: center;
+        }
+
+        .card h3 {
+            text-align: center;
+            margin-top: var(--spacing-xs);
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-sm); /* Reduced from spacing-md to spacing-sm */
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+            color: var(--primary-dark);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .section-underline {
+            height: 4px;
+            width: 80px;
+            background-color: var(--accent);
+            margin: 0 auto;
+        }
+        
+        .service-overview {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-md);
+            font-size: 1.1rem;
+        }
+
+        /* Service Cards */
+        .service-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            text-align: center;
+            position: relative;
+            padding-top: 80px; /* Increased padding at top to give more space between icon and title */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 0; /* Removed top margin */
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            position: absolute;
+            top: 15px; /* Keep at top of card */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 15px; /* Added margin to create more separation */
+        }
+
+        .service-header {
+            padding: var(--spacing-sm);
+            text-align: center;
+            margin-top: 15px; /* Added margin to push title down further */
+        }
+        
+        .service-header h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 0;
+        }
+
+        .service-body {
+            padding: 0 var(--spacing-md) var(--spacing-md);
+            font-size: 0.9rem;
+        }
+
+        .service-body ul {
+            list-style-type: none;
+            margin-bottom: var(--spacing-sm);
+            padding: 0;
+            text-align: left;
+        }
+
+        .service-body li {
+            margin-bottom: var(--spacing-xs);
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.4;
+        }
+        
+        .service-body li i {
+            color: var(--accent);
+            margin-right: 8px;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Team Section */
+        .team-member {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .team-member h3 {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: var(--spacing-xs);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Values Section */
+        .values-compact {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        
+        .values-bottom-row {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+            justify-content: center;
+        }
+        
+        .value-item {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: var(--spacing-sm);
+            box-shadow: var(--shadow);
+        }
+        
+        .value-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-right: var(--spacing-sm);
+        }
+        
+        .value-content {
+            flex-grow: 1;
+        }
+        
+        .value-content h3 {
+            margin: 0 0 var(--spacing-xs);
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+        }
+        
+        .value-content p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Pricing Table */
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--spacing-md);
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .pricing-table th, .pricing-table td {
+            padding: var(--spacing-sm);
+            text-align: left;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .pricing-table th {
+            background-color: var(--primary);
+            color: var(--text-light);
+        }
+
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: var(--spacing-md);
+            margin: var(--spacing-sm) 0;
+            text-align: center;
+        }
+        
+        .contact-info p {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .contact-info p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-info a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--accent);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            padding: var(--spacing-md) 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            max-width: 120px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-links {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 var(--spacing-xs);
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin: 0 var(--spacing-xs);
+        }
+
+        .copyright {
+            margin-top: var(--spacing-md);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 767px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: var(--spacing-xs) var(--spacing-sm);
+            }
+            
+            .company-name {
+                font-size: 1rem; /* Smaller font size on mobile */
+            }
+            
+            .nav-links {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 5px; /* Prevent scrollbar from cutting off link bottoms */
+            }
+            
+            .nav-links::-webkit-scrollbar {
+                display: none; /* Hide scrollbar for WebKit browsers */
+            }
+            
+            .nav-links a {
+                font-size: 0.8rem;
+                padding: var(--spacing-xs) calc(var(--spacing-xs) / 2);
+            }
+            
+            /* Adjust header margin for smaller screens */
+            header {
+                margin-top: 56px;
+            }
+            
+            /* Improve visibility of bullet points on mobile */
+            .service-body li i {
+                font-size: 1rem;
+                margin-right: 10px;
+                color: var(--accent);
+                margin-top: 0.15rem;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .company-name {
+                display: inline-block;
+            }
+
+            .nav-container {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .service-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .values-compact {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .value-item {
+                width: calc(50% - var(--spacing-sm) / 2);
+            }
+            
+            .values-bottom-row {
+                flex-direction: row;
+                justify-content: center;
+                width: 80%;
+                margin: var(--spacing-sm) auto 0;
+            }
+            
+            .values-bottom-row .value-item {
+                width: calc(50% - var(--spacing-sm) / 2);
+            }
+        }
+
+        @media screen and (min-width: 992px) {
+            .service-cards {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .value-item {
+                width: calc(33.333% - var(--spacing-sm) * 2 / 3);
+            }
+            
+            .values-bottom-row {
+                width: 60%;
+            }
+            
+            .values-bottom-row .value-item {
+                width: calc(50% - var(--spacing-sm) / 2);
+            }
+
+            .team-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo-and-name">
+                    <span class="company-name">To Grow Physiotherapy</span>
+                </div>
+                <div class="nav-links" id="nav-links">
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#values">Values</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="/api/placeholder/200/200" alt="To Grow Physiotherapy Logo" class="logo" />
+            </div>
+            <div class="tagline">Physiotherapy with Purpose</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Mobile Physiotherapy Services</h1>
+                <p>Serving Murray Bridge, Mannum, Strathalbyn, Milang, Adelaide Hills and surrounding areas with personalized, evidence-based care for all ages.</p>
+                <a href="#contact" class="btn">Book an Appointment</a>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="card">
+                <p>With over 7 years in private practice, we've evolved our approach to physiotherapy. Rather than encouraging dependency through frequent treatments, we empower our clients to take an active role in their recovery.</p>
+                <p>Our focus is on guiding individuals to better understand their condition and the purpose of each intervention, ensuring every interaction is meaningful and contributes to long-term results.</p>
+                <p>We believe that personalized care and active participation are essential for successful outcomes. For some, this means providing information, hands-on treatment, and follow-up visits, while others may benefit from more regular sessions with additional guidance. This tailored approach ensures that clients are never over-treated or left to navigate recovery alone.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>SERVICES</h2>
+                <div class="section-underline"></div>
+            </div>
+            
+            <div class="service-overview">
+                <p>We provide personalized physiotherapy and hydrotherapy services for all ages, tailored to your specific needs in the comfort of your home or preferred environment.</p>
+            </div>
+            
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="service-header">
+                        <h3>Adults</h3>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Pain management</li>
+                            <li><i class="fas fa-check-circle"></i> Injury recovery and prevention</li>
+                            <li><i class="fas fa-check-circle"></i> Managing chronic conditions such as Stroke, MS, Parkinson's disease, Huntington's disease and other Neurological or Genetic conditions affecting physical health</li>
+                            <li><i class="fas fa-check-circle"></i> Equipment prescription</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="service-header">
+                        <h3>Kids & Young Adults</h3>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Improving Gross motor skills such as balance, strength, coordination to help them with running, climbing, jumping</li>
+                            <li><i class="fas fa-check-circle"></i> Improving Fine motor skills developing hand-eye coordination and dexterity</li>
+                            <li><i class="fas fa-check-circle"></i> Assistance with Neurological and Genetic conditions affecting motor development</li>
+                            <li><i class="fas fa-check-circle"></i> Toe walking</li>
+                            <li><i class="fas fa-check-circle"></i> Toileting and Continence</li>
+                            <li><i class="fas fa-check-circle"></i> Equipment prescription</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="service-header">
+                        <h3>Babies</h3>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Support motor milestones such as tummy time, rolling, sitting, crawling, and walking</li>
+                            <li><i class="fas fa-check-circle"></i> Treatment for conditions such as club foot, torticollis, and other muscle and joint-related conditions</li>
+                            <li><i class="fas fa-check-circle"></i> Assistance with Neurological and Genetic conditions affecting motor development</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div class="service-header">
+                        <h3>Reformer Pilates</h3>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> 1:1 session with our physiotherapist in Murray Bridge</li>
+                            <li><i class="fas fa-check-circle"></i> Helps recovering from injuries and surgery</li>
+                            <li><i class="fas fa-check-circle"></i> Improves core muscle strength and postural control</li>
+                            <li><i class="fas fa-check-circle"></i> Improves balance, overall body strength and control, and body awareness</li>
+                            <li><i class="fas fa-check-circle"></i> Helps with chronic conditions affecting the body and tension related pain</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="team">
+        <div class="container">
+            <h2>Meet Our Team</h2>
+            <div class="team-container">
+                <div class="team-member card">
+                    <h3>Jemma</h3>
+                    <p>Jemma brings over 7 years of experience in physiotherapy, having completed her Master's degree at Flinders University in Adelaide along with a postgraduate qualification in Paediatric Physiotherapy from Melbourne.</p>
+                    <p>With a passion for working with children and supporting adults through Reformer Pilates, Jemma provides specialized care for a diverse range of clients.</p>
+                    <p>Outside of her professional life, Jemma is actively involved in her local netball team as both a player and coach. She lives on a farm and enjoys taking her family on caravan adventures.</p>
+                </div>
+
+                <div class="team-member card">
+                    <h3>Lien</h3>
+                    <p>Lien has over 7 years of experience in physiotherapy, having earned her Master's degree in musculoskeletal physiotherapy from the University of Leuven in Belgium.</p>
+                    <p>After practicing in Belgium for 3 years, her travels in Argentina led her to meet her Australian partner, bringing her to Australia where she continued her career in Paediatric Physiotherapy.</p>
+                    <p>When not working, Lien enjoys exploring the world with her family and makes regular trips back to Belgium to maintain her connections there.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="values">
+        <div class="container">
+            <div class="section-header">
+                <h2>OUR VALUES</h2>
+                <div class="section-underline"></div>
+            </div>
+            <div class="values-compact">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Communication</h3>
+                        <p>Written session summaries to review progress at your own pace.</p>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Transparency</h3>
+                        <p>Clear treatment plans ensuring relevant and effective interventions.</p>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Feedback</h3>
+                        <p>Recognizing clients as experts in their own experiences and needs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Centered bottom row with Education and Accountability -->
+            <div class="values-bottom-row">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Education</h3>
+                        <p>Building understanding through demonstrations and personalized resources.</p>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Accountability</h3>
+                        <p>Remaining accessible through multiple channels for consistent support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="pricing">
+        <div class="container">
+            <h2>Our Pricing</h2>
+            <p>We charge the fees as set by the NDIS for physiotherapy services in South Australia, currently $224.62 per hour. As a mobile service, we don't charge for travel within our standard service area. For locations outside our usual route, a travel fee may apply.</p>
+            
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Fee</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Initial visit (60 min)</td>
+                        <td>$224.62</td>
+                    </tr>
+                    <tr>
+                        <td>Initial visit (45 min)</td>
+                        <td>$168.46</td>
+                    </tr>
+                    <tr>
+                        <td>Subsequent visit (30 min)</td>
+                        <td>$112.31</td>
+                    </tr>
+                    <tr>
+                        <td>Telehealth Consult (30 min)</td>
+                        <td>$112.31</td>
+                    </tr>
+                    <tr>
+                        <td>Reformer Pilates Initial Consult (45 min)</td>
+                        <td>$168.46</td>
+                    </tr>
+                    <tr>
+                        <td>Reformer Pilates Subsequent Consult (30 min)</td>
+                        <td>$112.31</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:admin@togrowphysio.com.au">admin@togrowphysio.com.au</a></p>
+                <p><strong>Phone:</strong> <a href="tel:0410343503">0410 343 503</a></p>
+                <p>We look forward to hearing from you and addressing your physiotherapy needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M100 180 L100 120 Q100 80 50 80 Q50 110 100 120" fill="white" />
+                        <circle cx="100" cy="70" r="40" fill="none" stroke="white" stroke-width="2" />
+                        <path d="M100 30 Q120 10 140 30" fill="none" stroke="white" stroke-width="2" />
+                        <path d="M100 30 Q80 10 60 30" fill="none" stroke="white" stroke-width="2" />
+                        <path d="M60 30 Q40 50 60 70" fill="none" stroke="white" stroke-width="2" />
+                        <path d="M140 30 Q160 50 140 70" fill="none" stroke="white" stroke-width="2" />
+                        <path d="M60 70 Q40 90 60 110" fill="none" stroke="white" stroke-width="2" />
+                        <path d="M140 70 Q160 90 140 110" fill="none" stroke="white" stroke-width="2" />
+                        <text x="50" y="150" font-family="Arial" font-size="14" fill="white">To Grow</text>
+                        <text x="40" y="170" font-family="Arial" font-size="14" fill="white">Physiotherapy</text>
+                    </svg>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#team">Team</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+                
+                <p class="copyright">&copy; 2025 To Grow Physiotherapy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
