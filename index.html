@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Grow Physiotherapy | Physiotherapy with Purpose</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Added Google Fonts link for Quicksand, a more playful but still professional font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             /* Updated color scheme */
@@ -30,7 +34,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Quicksand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
@@ -167,8 +171,12 @@
         }
 
         .logo {
-            max-width: 180px;
-            height: auto;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-light);
+            box-shadow: var(--shadow);
         }
 
         .tagline {
@@ -339,7 +347,7 @@
         }
 
         .service-body {
-            padding: 0 var(--spacing-md) var(--spacing-md);
+            padding: 0 var(--spacing-md) var(--spacing-sm);
             font-size: 0.9rem;
         }
 
@@ -364,16 +372,59 @@
             margin-top: 0.2rem;
             flex-shrink: 0;
         }
+        
+        .service-image {
+            margin-top: auto;
+            overflow: hidden;
+			height: 350px;
+        }
+        
+        .service-image img {
+            width: 100%;
+			height: 100%; /* Make image fill the container */
+			object-fit: cover; /* Maintain aspect ratio while covering container */
+			object-position: center; /* Center the image */
+			display: block;
+			transition: transform 0.3s ease;
+		}
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+        }
 
         /* Team Section */
         .team-member {
             margin-bottom: var(--spacing-lg);
         }
 
+        .team-member-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .team-member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: var(--spacing-sm);
+            border: 4px solid var(--primary-light);
+            box-shadow: var(--shadow);
+        }
+        
+        .team-member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .team-member h3 {
             border-bottom: 2px solid var(--accent);
             padding-bottom: var(--spacing-xs);
             margin-bottom: var(--spacing-sm);
+            text-align: center;
         }
 
         /* Values Section */
@@ -456,37 +507,116 @@
             border-bottom: none;
         }
 
-        /* Contact Info */
-        .contact-info {
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            padding: var(--spacing-md);
-            margin: var(--spacing-sm) 0;
+        /* Contact Form Styling - Enhanced */
+        .contact-intro {
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-md);
+            font-size: 1.1rem;
         }
         
-        .contact-info p {
+        .contact-card {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+        }
+        
+        .contact-form {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
             margin-bottom: var(--spacing-sm);
         }
         
-        .contact-info p:last-child {
-            margin-bottom: 0;
+        .form-group {
+            margin-bottom: var(--spacing-md);
         }
         
-        .contact-info a {
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background-color: #f9f9f9;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #aaa;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(90, 141, 127, 0.15);
+            background-color: #fff;
+        }
+        
+        .form-submit {
+            text-align: center;
+            margin-top: var(--spacing-md);
+        }
+        
+        .form-submit .btn {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-details {
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid #eee;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .contact-details p {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.1rem;
+        }
+        
+        .contact-details a {
             color: var(--primary-dark);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
         }
         
-        .contact-info a:hover {
+        .contact-details a:hover {
             color: var(--accent);
-        }
-
-        .form-group {
-            margin-bottom: var(--spacing-md);
         }
 
         /* Footer */
@@ -506,6 +636,9 @@
         .footer-logo {
             max-width: 120px;
             margin-bottom: var(--spacing-md);
+			border-radius: 50%;
+            border: 4px solid var(--primary-light);
+            box-shadow: var(--shadow);
         }
 
         .footer-links {
@@ -614,6 +747,14 @@
             .values-bottom-row .value-item {
                 width: calc(50% - var(--spacing-sm) / 2);
             }
+            
+            .form-row {
+                flex-direction: row;
+            }
+            
+            .form-row .form-group {
+                flex: 1;
+            }
         }
 
         @media screen and (min-width: 992px) {
@@ -651,6 +792,7 @@
                 <div class="nav-links" id="nav-links">
                     <ul>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
                         <li><a href="#team">Team</a></li>
                         <li><a href="#values">Values</a></li>
                         <li><a href="#pricing">Pricing</a></li>
@@ -664,7 +806,7 @@
     <header>
         <div class="container">
             <div class="logo-container">
-                <img src="docs/assets/logo.png" alt="To Grow Physiotherapy Logo" class="logo" />
+                <img src="docs/assets/logo.jpg" alt="To Grow Physiotherapy Logo" class="logo" />
             </div>
             <div class="tagline">Physiotherapy with Purpose</div>
         </div>
@@ -674,23 +816,10 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Mobile Physiotherapy Services</h1>
-                <p>Serving Murray Bridge, Mannum, Strathalbyn, Milang, Adelaide Hills and surrounding areas with personalized, evidence-based care for all ages.</p>
+                <p>Servicing Murray Bridge, Mannum, Strathalbyn, Milang, Adelaide Hills and surrounding areas with personalised, evidence-based care for all ages.</p>
                 <a href="#contact" class="btn">Book an Appointment</a>
             </div>
         </div>
-
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <div class="card">
-                <p>With over 7 years in private practice, we've evolved our approach to physiotherapy. Rather than encouraging dependency through frequent treatments, we empower our clients to take an active role in their recovery.</p>
-                <p>Our focus is on guiding individuals to better understand their condition and the purpose of each intervention, ensuring every interaction is meaningful and contributes to long-term results.</p>
-                <p>We believe that personalized care and active participation are essential for successful outcomes. For some, this means providing information, hands-on treatment, and follow-up visits, while others may benefit from more regular sessions with additional guidance. This tailored approach ensures that clients are never over-treated or left to navigate recovery alone.</p>
-            </div>
-        </div>
-
     </section>
 
     <section id="services">
@@ -701,7 +830,7 @@
             </div>
             
             <div class="service-overview">
-                <p>We provide personalized physiotherapy and hydrotherapy services for all ages, tailored to your specific needs in the comfort of your home or preferred environment.</p>
+                <p>We provide physiotherapy and hydrotherapy services for all ages, tailored to your specific needs in the comfort of your home or preferred environment.</p>
             </div>
             
             <div class="service-cards">
@@ -720,6 +849,9 @@
                             <li><i class="fas fa-check-circle"></i> Equipment prescription</li>
                         </ul>
                     </div>
+                    <div class="service-image">
+                        <img src="docs/assets/tafel.jpg" alt="Adults Physiotherapy Services" />
+                    </div>
                 </div>
 
                 <div class="service-card">
@@ -731,13 +863,16 @@
                     </div>
                     <div class="service-body">
                         <ul>
-                            <li><i class="fas fa-check-circle"></i> Improving Gross motor skills such as balance, strength, coordination to help them with running, climbing, jumping</li>
-                            <li><i class="fas fa-check-circle"></i> Improving Fine motor skills developing hand-eye coordination and dexterity</li>
+                            <li><i class="fas fa-check-circle"></i> Improving gross motor skills such as balance, strength, coordination to help them with running, climbing, jumping</li>
+                            <li><i class="fas fa-check-circle"></i> Improving fine motor skills developing hand-eye coordination and dexterity</li>
                             <li><i class="fas fa-check-circle"></i> Assistance with Neurological and Genetic conditions affecting motor development</li>
                             <li><i class="fas fa-check-circle"></i> Toe walking</li>
                             <li><i class="fas fa-check-circle"></i> Toileting and Continence</li>
                             <li><i class="fas fa-check-circle"></i> Equipment prescription</li>
                         </ul>
+                    </div>
+                    <div class="service-image">
+                        <img src="docs/assets/hurdels.jpg" alt="Kids & Young Adults Physiotherapy Services" />
                     </div>
                 </div>
 
@@ -750,33 +885,50 @@
                     </div>
                     <div class="service-body">
                         <ul>
-                            <li><i class="fas fa-check-circle"></i> Support motor milestones such as tummy time, rolling, sitting, crawling, and walking</li>
-                            <li><i class="fas fa-check-circle"></i> Treatment for conditions such as club foot, torticollis, and other muscle and joint-related conditions</li>
+                            <li><i class="fas fa-check-circle"></i> Supporting motor development and milestone achievement including tummy time, rolling, sitting, crawling, and walking</li>
+                            <li><i class="fas fa-check-circle"></i> Treatment for conditions such as torticollis and other muscle and joint-related conditions</li>
                             <li><i class="fas fa-check-circle"></i> Assistance with Neurological and Genetic conditions affecting motor development</li>
                         </ul>
+                    </div>
+                    <div class="service-image">
+                        <img src="docs/assets/baby.jpg" alt="Baby Physiotherapy Services" />
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-spa"></i>
+                        <i class="fas fa-water"></i>
                     </div>
                     <div class="service-header">
-                        <h3>Reformer Pilates</h3>
+                        <h3>Hydrotherapy</h3>
                     </div>
                     <div class="service-body">
                         <ul>
-                            <li><i class="fas fa-check-circle"></i> 1:1 session with our physiotherapist in Murray Bridge</li>
-                            <li><i class="fas fa-check-circle"></i> Helps recovering from injuries and surgery</li>
-                            <li><i class="fas fa-check-circle"></i> Improves core muscle strength and postural control</li>
-                            <li><i class="fas fa-check-circle"></i> Improves balance, overall body strength and control, and body awareness</li>
+                            <li><i class="fas fa-check-circle"></i> Hydrotherapy services for children and adults</li>
+                            <li><i class="fas fa-check-circle"></i> Improves mobility, strength and coordination</li>
+                            <li><i class="fas fa-check-circle"></i> Supports motor development in a playful way</li>
+                            <li><i class="fas fa-check-circle"></i> Low-impact rehabilitation after injury</li>
+                            <li><i class="fas fa-check-circle"></i> Helps to improve or maintain fitness</li>
                             <li><i class="fas fa-check-circle"></i> Helps with chronic conditions affecting the body and tension related pain</li>
                         </ul>
+                    </div>
+                    <div class="service-image">
+                        <img src="docs/assets/Hydrotherapy.jpg" alt="Hydrotherapy Services" />
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="card">
+                <p>With over 7 years in private practice, we've evolved our approach to physiotherapy. Rather than encouraging dependency through frequent treatments, we empower our clients to take an active role in their recovery.</p>
+                <p>Our focus is on guiding individuals to better understand their condition and the purpose of each intervention, ensuring every interaction is meaningful and contributes to long-term results.</p>
+                <p>We believe that personalised care and active participation are essential for successful outcomes. For some, this means providing information, hands-on treatment, and follow-up visits, while others may benefit from more regular sessions with additional guidance. This tailored approach ensures that clients are never over-treated or left to navigate recovery alone.</p>
+            </div>
+        </div>
     </section>
 
     <section id="team">
@@ -784,21 +936,30 @@
             <h2>Meet Our Team</h2>
             <div class="team-container">
                 <div class="team-member card">
-                    <h3>Jemma</h3>
+                    <div class="team-member-header">
+                        <div class="team-member-photo">
+                            <img src="docs/assets/jemma.jpg" alt="Jemma" />
+                        </div>
+                        <h3>Jemma</h3>
+                    </div>
                     <p>Jemma brings over 7 years of experience in physiotherapy, having completed her Master's degree at Flinders University in Adelaide along with a postgraduate qualification in Paediatric Physiotherapy from Melbourne.</p>
                     <p>With a passion for working with children and supporting adults through Reformer Pilates, Jemma provides specialized care for a diverse range of clients.</p>
                     <p>Outside of her professional life, Jemma is actively involved in her local netball team as both a player and coach. She lives on a farm and enjoys taking her family on caravan adventures.</p>
                 </div>
 
                 <div class="team-member card">
-                    <h3>Lien</h3>
+                    <div class="team-member-header">
+                        <div class="team-member-photo">
+                            <img src="docs/assets/lien.jpg" alt="Lien" />
+                        </div>
+                        <h3>Lien</h3>
+                    </div>
                     <p>Lien has over 7 years of experience in physiotherapy, having earned her Master's degree in musculoskeletal physiotherapy from the University of Leuven in Belgium.</p>
                     <p>After practicing in Belgium for 3 years, her travels in Argentina led her to meet her Australian partner, bringing her to Australia where she continued her career in Paediatric Physiotherapy.</p>
                     <p>When not working, Lien enjoys exploring the world with her family and makes regular trips back to Belgium to maintain her connections there.</p>
                 </div>
             </div>
         </div>
-
     </section>
 
     <section id="values">
@@ -834,7 +995,7 @@
                     </div>
                     <div class="value-content">
                         <h3>Feedback</h3>
-                        <p>Recognizing clients as experts in their own experiences and needs.</p>
+                        <p>Recognising clients as experts in their own experiences and needs.</p>
                     </div>
                 </div>
             </div>
@@ -862,7 +1023,6 @@
                 </div>
             </div>
         </div>
-
     </section>
 
     <section id="pricing">
@@ -894,27 +1054,54 @@
                         <td>Telehealth Consult (30 min)</td>
                         <td>$112.31</td>
                     </tr>
-                    <tr>
-                        <td>Reformer Pilates Initial Consult (45 min)</td>
-                        <td>$168.46</td>
-                    </tr>
-                    <tr>
-                        <td>Reformer Pilates Subsequent Consult (30 min)</td>
-                        <td>$112.31</td>
-                    </tr>
                 </tbody>
             </table>
         </div>
-
     </section>
 
     <section id="contact">
         <div class="container">
-            <h2>Get in Touch</h2>
-            <div class="contact-info">
-                <p><strong>Email:</strong> <a href="mailto:admin@togrowphysio.com.au">admin@togrowphysio.com.au</a></p>
-                <p><strong>Phone:</strong> <a href="tel:0410343503">0410 343 503</a></p>
-                <p>We look forward to hearing from you and addressing your physiotherapy needs.</p>
+            <div class="section-header">
+                <h2>CONTACT US</h2>
+                <div class="section-underline"></div>
+            </div>
+            <p class="contact-intro">We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
+            <div class="card contact-card">
+                <form class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Your email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" name="service">
+                            <option value="">Please select a service</option>
+                            <option value="adults">Adults</option>
+                            <option value="kids">Kids & Young Adults</option>
+                            <option value="babies">Babies</option>
+                            <option value="hydrotherapy">Hydrotherapy</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your needs" required></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn">Send Message</button>
+                    </div>
+                </form>
+                <div class="contact-details">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <p>Email us directly at: <a href="mailto:admin@togrowphysio.com.au">admin@togrowphysio.com.au</a></p>
+                </div>
             </div>
         </div>
     </section>
@@ -922,51 +1109,24 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M100 180 L100 120 Q100 80 50 80 Q50 110 100 120" fill="white" />
-                        <circle cx="100" cy="70" r="40" fill="none" stroke="white" stroke-width="2" />
-                        <path d="M100 30 Q120 10 140 30" fill="none" stroke="white" stroke-width="2" />
-                        <path d="M100 30 Q80 10 60 30" fill="none" stroke="white" stroke-width="2" />
-                        <path d="M60 30 Q40 50 60 70" fill="none" stroke="white" stroke-width="2" />
-                        <path d="M140 30 Q160 50 140 70" fill="none" stroke="white" stroke-width="2" />
-                        <path d="M60 70 Q40 90 60 110" fill="none" stroke="white" stroke-width="2" />
-                        <path d="M140 70 Q160 90 140 110" fill="none" stroke="white" stroke-width="2" />
-                        <text x="50" y="150" font-family="Arial" font-size="14" fill="white">To Grow</text>
-                        <text x="40" y="170" font-family="Arial" font-size="14" fill="white">Physiotherapy</text>
-                    </svg>
-                </div>
-                
+                <img src="docs/assets/logo.jpg" alt="To Grow Physiotherapy Logo" class="footer-logo" />
                 <div class="footer-links">
-                    <a href="#about">About</a>
                     <a href="#services">Services</a>
+                    <a href="#about">About</a>
                     <a href="#team">Team</a>
+                    <a href="#values">Values</a>
                     <a href="#pricing">Pricing</a>
                     <a href="#contact">Contact</a>
                 </div>
-                
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
-                
-                <p class="copyright">&copy; 2025 To Grow Physiotherapy. All rights reserved.</p>
+                <div class="copyright">
+                    &copy; 2025 To Grow Physiotherapy. All rights reserved.
+                </div>
             </div>
         </div>
     </footer>
-
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
